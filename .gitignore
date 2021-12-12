@@ -1,3 +1,16 @@
 .idea
 __pycache__/
 .env
+frontend/node_modules
+frontend/public
+/frontend/src/App.css
+/frontend/src/App.test.js
+/frontend/src/index.css
+/frontend/src/index.js
+/frontend/src/logo.svg
+/frontend/src/reportWebVitals.js
+/frontend/src/setupTests.js
+/frontend/.gitignore
+/frontend/package.json
+/frontend/package-lock.json
+/frontend/README.md
