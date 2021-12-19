@@ -30,4 +30,3 @@ class ToDoModelViewSet(ModelViewSet):
     def perform_destroy(self, instance):
         instance.is_done = True
         instance.save()
-
