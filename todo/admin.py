@@ -3,14 +3,15 @@ from todo.models import Project, ToDo
 
 
 @admin.register(Project)
-class TodoAdmin(admin.ModelAdmin):
-    list_display = ('name', 'get_users', 'repository_link')
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'get_users', 'repository_link')
     fields = ('name', 'users', 'repository_link')
+    ordering = ('id',)
 
 
 @admin.register(ToDo)
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ('project_name', 'text', 'user', 'created', 'updated', 'is_active')
-    fields = ('project_name', 'text', 'user', ('created', 'updated'), 'is_active')
+    list_display = ('id', 'project_name', 'text', 'user', 'created', 'updated', 'is_done')
+    fields = ('project_name', 'text', 'user', ('created', 'updated'), 'is_done')
     readonly_fields = ('created', 'updated')
-    ordering = ('project_name',)
+    ordering = ('id',)
