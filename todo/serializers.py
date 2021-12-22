@@ -4,15 +4,17 @@ from .models import Project, ToDo
 
 
 class ProjectSerializer(HyperlinkedModelSerializer):
-    # users = StringRelatedField(many=True)
+    users = StringRelatedField(many=True)
 
     class Meta:
         model = Project
-        fields = ('name', 'repository_link', 'users')
+        fields = ('id', 'name', 'repository_link', 'users')
 
 
 class ToDoSerializer(HyperlinkedModelSerializer):
     project_name = StringRelatedField()
+    user = StringRelatedField()
+    is_done = StringRelatedField()
 
     class Meta:
         model = ToDo

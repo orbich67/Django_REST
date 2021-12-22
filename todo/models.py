@@ -12,7 +12,8 @@ class Project(models.Model):
         return f'{self.name} ({self.repository_link})'
 
     def get_users(self):
-        return ', '.join([users.username for users in self.users.all()])
+        # return ', '.join([f'{users.username} ({users.email})' for users in self.users.all()])
+        return ', '.join([f'{users.username}' for users in self.users.all()])
     get_users.short_description = 'Users'
 
 

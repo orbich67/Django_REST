@@ -16,14 +16,14 @@ class ToDoPagination(PageNumberPagination):
 class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-    pagination_class = ProjectPagination
+    # pagination_class = ProjectPagination
     filterset_class = ProjectFilter
 
 
 class ToDoModelViewSet(ModelViewSet):
     queryset = ToDo.objects.all()
     serializer_class = ToDoSerializer
-    pagination_class = ToDoPagination
+    # pagination_class = ToDoPagination
     filterset_fields = ['project_name']
     filterset_class = ToDoFilter
 
