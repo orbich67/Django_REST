@@ -44,12 +44,17 @@ INSTALLED_APPS = [
 
     'django_filters',
     'drf_yasg',
+    'graphene_django',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
     'user',
     'todo',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'drf_project.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
