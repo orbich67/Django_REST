@@ -17,6 +17,7 @@ class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     # pagination_class = ProjectPagination
+    filterset_fields = ['name']
     filterset_class = ProjectFilter
 
 

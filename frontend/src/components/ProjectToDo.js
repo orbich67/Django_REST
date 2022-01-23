@@ -16,7 +16,9 @@ const ToDoItem = ({todo}) => {
 
 const ProjectToDo = ({todos}) => {
     let { id } = useParams();
-    let filteredTodos = todos.filter((todo) => todo.project_name.includes(parseInt(id)))
+    // перестал работать todo.project_name.includes(parseInt(id)))
+    // let filteredTodos = todos.filter((todo) => todo.project_name.includes(parseInt(id)))
+    let filteredTodos = todos.filter((todo) => todo.project_name == id)
 
     return (
         <table>
