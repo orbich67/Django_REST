@@ -43,12 +43,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_filters',
+    'drf_yasg',
+    'graphene_django',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
     'user',
     'todo',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'drf_project.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -101,7 +107,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
-    ]
+    ],
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning'
 }
 
 if DEBUG:

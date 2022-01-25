@@ -1,19 +1,19 @@
 from rest_framework.relations import StringRelatedField
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializer
 from .models import Project, ToDo
 
 
-class ProjectSerializer(HyperlinkedModelSerializer):
-    users = StringRelatedField(many=True)
+class ProjectSerializer(ModelSerializer):
+    # users = StringRelatedField(many=True)
 
     class Meta:
         model = Project
         fields = ('id', 'name', 'repository_link', 'users')
 
 
-class ToDoSerializer(HyperlinkedModelSerializer):
-    project_name = StringRelatedField()
-    user = StringRelatedField()
+class ToDoSerializer(ModelSerializer):
+    # project_name = StringRelatedField()
+    # user = StringRelatedField()
     is_done = StringRelatedField()
 
     class Meta:
