@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 from rest_framework.permissions import AllowAny
 from rest_framework.routers import DefaultRouter
 from user.views import UserModelViewSet
@@ -31,9 +32,10 @@ router.register('todos', ToDoModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api-token-auth/', views.obtain_auth_token),
+    # path('api-auth/', include('rest_framework.urls')),
+    # path('api-token-auth/', views.obtain_auth_token),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0)),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
